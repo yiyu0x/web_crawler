@@ -13,13 +13,14 @@
 >mv ./spiderForTerminal.py /usr/local/yiyu_progrem
 
 新增環境變數(指定路徑)
-//bash用戶
+
+**bash用戶**
 > echo "PATH=\\"/usr/local/yiyu_program:\$\{PATH\}\\"" >> ~/.bash_profile
 
 重新載入環境
 >source ~/.bash_profile
 
-//zsh用戶
+**zsh用戶**
 
 > echo "export PATH=$PATH:/usr/local/yiyu_progrem" >> ~/.zshrc
 
