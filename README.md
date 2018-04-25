@@ -11,7 +11,11 @@
  - ptt表特版(隨機回傳一張表特照片,演算法待改進)
  - 統一發票對獎(回傳開獎圖片網址)
  - 台灣彩卷對獎(回傳台灣各樂透開獎號碼)
- 
+
+## Usage
+
+`python3 crawler.py`
+
 ## demo
 
 ![demo](https://i.imgur.com/Du3aQe3.png)
