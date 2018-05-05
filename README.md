@@ -20,5 +20,7 @@
 
 ![demo](https://i.imgur.com/Du3aQe3.png)
 
+![demo_lottery](https://i.imgur.com/iayRxpV.png)
+
 mac + zsh 用戶可透過 `command` + `滑鼠` 直接點擊連結
 
