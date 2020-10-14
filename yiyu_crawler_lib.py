@@ -1,21 +1,38 @@
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import requests
 import re
 import random
+
 def yt_hot():
-    res = requests.get("https://www.youtube.com.tw/feed/trending")
-    soup = BeautifulSoup(res.text,'html.parser')
+    chrome_options = Options()
+
+    chrome_options.add_argument("--disable-notifications")
+    chrome_options.add_argument('--headless') # 不提供可視化界面
+    chrome_options.add_argument('--disable-gpu') # 規避 bug 
+    chrome_options.add_argument("--incognito")
+    chrome_options.add_argument('blink-settings=imagesEnabled=false') # 不加載圖片
+    
+    chrome = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
+    
+    chrome.get("https://www.youtube.com/feed/trending")
+    soup = BeautifulSoup(chrome.page_source,'html.parser')
     yt_target = 5
     yt_hot = ''
     yt_counter = 0
     # https://www.youtube.com/watch?v=UoSxTDOp6mY
-    for a_tag in soup.select('h3'):
-        match = re.search(r'.*href="(.*?)" title="(.*?)"',str(a_tag))
-        if match:
+    for a_tag in soup.find_all('a', {'id': 'video-title'}):
+        if a_tag:
             yt_counter += 1
-            yt_hot += '🌟' + match.group(2) + ' ' + 'https://www.youtube.com' + match.group(1) + '\n'
-            # print(match.group(1),match.group(2))
-            if yt_counter==yt_target:
+            tmp = a_tag['aria-label'].split()
+            yt_hot += '🌟' + a_tag.getText() 
+            for context in tmp:
+                if '上傳者' in context:
+                    yt_hot += context.replace('上傳者：','') + '\n'
+            yt_hot += 'https://youtube.com' + a_tag['href']
+            yt_hot += '\n --- \n'
+            if yt_counter == yt_target:
                 break
     yt_hot = yt_hot[:len(yt_hot)-1]
     return yt_hot
