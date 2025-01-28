@@ -1,16 +1,14 @@
-
-
 ## Features
 
 ![view](https://i.imgur.com/SahBxxO.png)
 
-目前功能:
- - dacrd熱門(回傳文章標題 網址)
- - kkbox熱門(回傳歌名,專輯名稱,歌手)
- - youtube熱門(回傳文章標題 網址)
- - ptt表特版(隨機回傳一張表特照片,演算法待改進)
- - 統一發票對獎(回傳開獎圖片網址)
- - 台灣彩卷對獎(回傳台灣各樂透開獎號碼)
+Current Features:
+	•	Dcard Hot Topics: Returns article titles and URLs.
+	•	KKBOX Trending: Returns song titles, album names, and artists.
+	•	YouTube Trending: Returns video titles and URLs.
+	•	PTT Beauty Board: Randomly returns a photo from the Beauty board (algorithm improvement pending).
+	•	Unified Invoice Checker: Returns the URL of the winning number announcement image.
+	•	Taiwan Lottery Checker: Returns the winning numbers for various Taiwan lottery games.
 
 ## Usage
 
@@ -21,6 +19,4 @@
 ![demo](https://i.imgur.com/Du3aQe3.png)
 
 ![demo_lottery](https://i.imgur.com/iayRxpV.png)
-
-mac + zsh 用戶可透過 `command` + `滑鼠` 直接點擊連結
 
